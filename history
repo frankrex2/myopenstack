@@ -397,37 +397,172 @@
   397  nova pause $VAR_UUID
   398  nova show $VAR_UUID
   399  mkdir ~/myopenstack`
-cd myopenstack
-yum install git
-ggit config --global user.name "frankrex2"
-git config --global user.email "frankrex@sbcglobal.net"
-mkdir ~/myopenstack`
   400  cd myopenstack
   401  yum install git
   402  ggit config --global user.name "frankrex2"
   403  git config --global user.email "frankrex@sbcglobal.net"
-  404  git status
+  404  mkdir ~/myopenstack`
   405  cd myopenstack
-  406  mkdir ~/myopenstack`
-cd myopenstack
-yum install git
-git config --global user.name "frankrex2"
-git config --global user.email "frankrex@sbcglobal.net"
-git config --list
-git init
-history > history
-git status
-git add history
-git commit -m
-
-  407  ll
-  408  cd
-  409  ll
-  410  cd myopenstack/
-  411  ll
-  412  yum install git
-  413  git config --global user.name "frankrex2"
-  414  git config --global user.email "frankrex@sbcglobal.net" 
-  415  git config --list 
-  416  git init 
-  417  history > history
+  406  yum install git
+  407  ggit config --global user.name "frankrex2"
+  408  git config --global user.email "frankrex@sbcglobal.net"
+  409  git status
+  410  cd myopenstack
+  411  mkdir ~/myopenstack`
+  412  cd myopenstack
+  413  yum install git
+  414  git config --global user.name "frankrex2"
+  415  git config --global user.email "frankrex@sbcglobal.net"
+  416  git config --list
+  417  git init
+  418  history > history
+  419  git status
+  420  git add history
+  421  git commit -m
+  422  ll
+  423  cd
+  424  ll
+  425  cd myopenstack/
+  426  ll
+  427  yum install git
+  428  git config --global user.name "frankrex2"
+  429  git config --global user.email "frankrex@sbcglobal.net" 
+  430  git config --list 
+  431  git init 
+  432  history > history
+  433  git status
+  434  git add history
+  435  git commit history -m "Record my history for the week"
+  436  git remote add origin https://github.com/frankrex2/myopenstack.git
+  437  git push -u origin master
+  438  cp /etc/nova/nova.conf  ~/myopenstack/.
+  439  ll
+  440  git add nova.conf
+  441  git status
+  442  git commit nova.conf -m "Record nova.conf before it is fixed"
+  443  git status
+  444  git push -u origin master
+  445  nova list
+  446  nova list chestercopperpot
+  447  nova list chestercopperpot | less -S
+  448  nova list chestercopperpot | tee ~/myopenstack/novalist
+  449  nova list --version
+  450  --os-tenant-name chestercopperpot
+  451  --os-tenant-name 
+  452  --os-user-nametenant chestercopperpot
+  453  --os-user-name chestercopperpot
+  454  nova list --os-user-name chestercopperpot
+  455  nova list --os-user-name rex
+  456  nova --os-user-name rex
+  457  source keystonerc_chestercopperpot
+  458  nova secgroup-list
+  459  nova secgroup-create http-ssh "Allowing http and ssh traffic"
+  460  nova secgroup-add-rule http-ssh tcp 80 80 0.0.0.0/0
+  461  nova secgroup-add-rule http-ssh tcp 22 22 0.0.0.0/0
+  462  nova secgroup-list-rules http-ssh
+  463  nova secgroup-list
+  464  nova secgroup-list | less -S
+  465  nova secgroup-list | tee ~/myopenstack/nova_test
+  466  source keystonerc_chestercopperpot
+  467  rintenv | grep OS_
+  468  printenv | grep OS_
+  469  neutron net-create vault-tek-network
+  470  neutron subnet-create --name vault-tek-network-subnet-10 --gateway 10.10.0.1 vault-tek-network 10.10.0.0/24
+  471  neutron router-create vault-tek-router
+  472  neutron router-gateway-set vault-tek-router public
+  473  neutron router-show <ROUTER-ID> | less -S
+  474  neutron router-show c39bb3b2-7179-4445-b0c0-2ef480790639 | less -S
+  475  neutron router-show c39bb3b2-7179-4445-b0c0-2ef480790639
+  476  neutron router-show c39bb3b2-7179-4445-b0c0-2ef480790639 | less -S
+  477  neutron router-interface-add vault-tek-router vault-tek-network-subnet-10
+  478  neutron router-show c39bb3b2-7179-4445-b0c0-2ef480790639 | less -S
+  479  neutron router-port-list c39bb3b2-7179-4445-b0c0-2ef480790639
+  480  source keystonerc_admin
+  481  neutron subnet-list
+  482  neutron subnet-show vault-tek-network-subnet-10
+  483  source keystonerc_chestercopperpot
+  484  nova show vt2
+  485  ssh root@neutron
+  486  source .bashrc
+  487  ls /var/log/nova
+  488  ls /var/log/glance
+  489  ls /var/log/cinder
+  490  ls /var/log/keystone
+  491  ls /var/log/horizon
+  492  ssh root@compute1
+  493  su centos
+  494  source keystonerc_admin
+  495  glance image-list
+  496  glance help image-create
+  497  glance image-create --name cirros_alpha --disk-format qcow2 --container-format bare --is-public true --location https://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+  498  glance image-list
+  499  neutron net-list
+  500  nova boot --flavor custom.shrimpy --image cirros_alpha --nic net-id=<private_network_id> admin_box
+  501  nova boot --flavor custom.shrimpy --image cirros_alpha --nic net-id=86e6e695-7775-46ef-827f-64c4306bb69f admin_box
+  502  nova boot --flavor custom.shrimpy --image cirros_alpha --nic net-id=20ca30a2-e3fb-4e62-bd78-08dc471e93ed admin_box
+  503  pvdisplay
+  504  source keystonerc_chestercopperpot
+  505  cinder create --display_name NASferatu 1
+  506  cinder list
+  507  nova list
+  508  nova volume-attach <replace_with_ID_of_instance_vt2> <replace_with_ID_of_volume_NASferatu> auto
+  509  nova volume-attach 93d581a8-b5e5-4a45-8714-af70dfcaa014 3beacb7d-6d0e-4bde-99f4-9ce2f1c5b0d1 auto
+  510  cinder list
+  511  nova volume-detach <replace_with_ID_of_instance_vt2> <replace_with_ID_of_volume_NASferatu>
+  512  nova volume-detach 93d581a8-b5e5-4a45-8714-af70dfcaa014 3beacb7d-6d0e-4bde-99f4-9ce2f1c5b0d1 auto
+  513  nova volume-detach 93d581a8-b5e5-4a45-8714-af70dfcaa014 3beacb7d-6d0e-4bde-99f4-9ce2f1c5b0d1
+  514  cinder list
+  515  cinder delete NASferatu
+  516  cinder list
+  517  nova list
+  518  nova show vt2 | grep network
+  519  neutron router-list | cut -c -59
+  520  ssh root@neutron
+  521  neutron net-list | grep vault
+  522  ssh root@neutron
+  523  neutron net-list | grep vault
+  524  nova boot --flavor m1.tiny --image cirros --nic net-id=<ID of vault-tek-network in the previous step> --security-groups http-ssh vt3
+  525  nova boot --flavor m1.tiny --image cirros --nic net-id=67b1d396-4840-4735-b4a4-eb72c4c657f1 --security-groups http-ssh vt3
+  526  nova list
+  527  cinder list
+  528  nova list
+  529  nova volume-detach 93d581a8-b5e5-4a45-8714-af70dfcaa014 d87dd60b-c30b-4445-836e-a873cd8955b1
+  530  cinder list
+  531  nova volume-attach <vt3-ID> <cargo-bay-ID> auto
+  532  nova volume-attach 8fc12b08-f83d-4638-a0a3-4721d366fe0d d87dd60b-c30b-4445-836e-a873cd8955b1 auto
+  533  ssh vt3
+  534  ssh root@neutron
+  535  nova list
+  536  ssh root@neutron
+  537  neutron net-list | grep vault
+  538  cinder list
+  539  neutron net-list | grep vault
+  540  nova list
+  541  git config --list
+  542  history > history2
+  543  git status
+  544  git add history2
+  545  cd myopenstack
+  546  git status
+  547  git add history2
+  548  history > history2
+  549  git add history2
+  550  git commit -m 'This is my 2nd history to my repository'
+  551  ls
+  552  git status
+  553  git add history2
+  554  git status
+  555  get init
+  556  ls
+  557  git config --list 
+  558  get init
+  559  git init
+  560  git status
+  561  git add history2
+  562  git commit -m 'This is my 2nd history to my repository'
+  563  git add history2
+  564  git commit -m 'This is my 2nd history to my repository'
+  565  git push
+  566  history > history2
+  567  git status
+  568  history > history
