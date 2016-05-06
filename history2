@@ -546,3 +546,21 @@
   546  git status
   547  git add history2
   548  history > history2
+  549  git add history2
+  550  git commit -m 'This is my 2nd history to my repository'
+  551  ls
+  552  git status
+  553  git add history2
+  554  git status
+  555  get init
+  556  ls
+  557  git config --list 
+  558  get init
+  559  git init
+  560  git status
+  561  git add history2
+  562  git commit -m 'This is my 2nd history to my repository'
+  563  git add history2
+  564  git commit -m 'This is my 2nd history to my repository'
+  565  git push
+  566  history > history2
